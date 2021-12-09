@@ -28,26 +28,19 @@ type CustomSegmentLabel =
            fontSize = customLabel.FontSize
            color = customLabel.Color |}
 
-type IReactSpeedometerProperty =
-    interface
-    end
-
-let (=>) key value =
-    unbox<IReactSpeedometerProperty> (key ==> value)
-
 type ReactSpeedometer =
 
-    static member inline Value(number: int) = "value" => number
-    static member inline MinValue(number: int) = "minValue" => number
-    static member inline MaxValue(number: int) = "maxValue" => number
-    static member inline Segments(number: int) = "segments" => number
+    static member inline Value(number: int) = "value" ==> number
+    static member inline MinValue(number: int) = "minValue" ==> number
+    static member inline MaxValue(number: int) = "maxValue" ==> number
+    static member inline Segments(number: int) = "segments" ==> number
 
     static member inline CustomSegmentLabels(customSegmentLabels: CustomSegmentLabel []) =
         let jsCustomSegmentLabels =
             customSegmentLabels
             |> Array.map CustomSegmentLabel.toJSObj
 
-        "customSegmentLabels" => jsCustomSegmentLabels
+        "customSegmentLabels" ==> jsCustomSegmentLabels
 
     static member inline create props =
         Interop.reactApi.createElement (reactSpeedometer, createObj !!props)

@@ -95,4 +95,23 @@ let view (model: Model) (dispatch: Msg -> unit) =
         ReactSpeedometer.MaxValue 100
         ReactSpeedometer.MinValue 0
         ReactSpeedometer.Segments 4
+
+        ReactSpeedometer.CustomSegmentLabels [|
+            { Text = "Hi"
+              Position = Inside
+              FontSize = "20px"
+              Color = "crimson" }
+            { Text = "From"
+              Position = Outside
+              FontSize = "20px"
+              Color = "blue" }
+            { Text = "Feliz"
+              Position = Inside
+              FontSize = "20px"
+              Color = "green" }
+            { Text = "Speedometer"
+              Position = Outside
+              FontSize = "20px"
+              Color = "purple" }
+        |]
     ]

@@ -11,10 +11,6 @@
 
 * Open cmd on the `practice` folder.
 
-```powershell
-dotnet new SAFE
-```
-
 * Run the following command:
 
 * Installs the .NET local tools that are in scope for the current directory.
